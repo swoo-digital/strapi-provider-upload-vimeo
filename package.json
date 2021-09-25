@@ -1,6 +1,6 @@
 {
   "name": "strapi-provider-upload-vimeo",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Strapi Plugin for uploading videos to vimeo",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,8 @@
   },
   "homepage": "https://github.com/viveakrt/strapi-provider-upload-vimeo#readme",
   "dependencies": {
-    "vimeo": "^2.1.1"
+    "vimeo": "^2.1.1",
+    "axios": "^0.21.1",
+    "tus-js-client": "^2.2.0"
   }
 }
