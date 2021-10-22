@@ -1,6 +1,6 @@
 {
   "name": "strapi-provider-upload-vimeo",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Strapi Plugin for uploading videos to vimeo",
   "main": "index.js",
   "scripts": {

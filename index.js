@@ -14,7 +14,7 @@ module.exports = {
             description: file.alternativeText,    
           }).then(res =>{
             file.url = res.data.link
-            console.log(file.url);
+            // console.log(file.url);
             resolve()
           }).catch(err => {
             console.log(err);
@@ -23,7 +23,7 @@ module.exports = {
         })
       },
       delete(file) {
-        console.log('/videos/'+file.url.split('/')[3])
+        // console.log('/videos/'+file.url.split('/')[3])
         client.vimeoClient.request( {
           method: 'DELETE',
           path: '/videos/'+file.url.split('/')[3]
