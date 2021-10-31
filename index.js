@@ -10,12 +10,29 @@ module.exports = {
         client.uploadFromBinary(
           {
             video: file.buffer,
-            name: file.hash+file.ext,
+            name: file.hash,
             description: file.alternativeText,    
           }).then(res =>{
+            if(config.premium){
+            client.getFromId(res.data.uri)
+            .then(res => {
+              file.url = res.data.download[0].link
+              file.width = res.data.width
+              file.height = res.data.height
+              file.provider_metadata =  {
+                "link":res.data.link,
+                "files":res.data.files,
+                "download":res.data.download
+              }
+              resolve()
+            }).catch(err =>{
+              console.log("get",err)
+              reject()
+            })
+          }else{
             file.url = res.data.link
-            // console.log(file.url);
             resolve()
+          }
           }).catch(err => {
             console.log(err);
             reject()
@@ -23,13 +40,18 @@ module.exports = {
         })
       },
       delete(file) {
-        // console.log('/videos/'+file.url.split('/')[3])
+        str = file.url
         client.vimeoClient.request( {
           method: 'DELETE',
-          path: '/videos/'+file.url.split('/')[3]
+          path: '/videos/'+str.substring(
+            str.indexOf("?s=") + 3, 
+            str.indexOf("_")
+        )
+        
         },  function (error, body, status_code, headers) {
           if (error) {
             console.log(error);
+            
           } 
         });
       },
