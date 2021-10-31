@@ -89,7 +89,6 @@ class vimeo {
             }).then(res => {
                 
                 var vimeoVideoID = res.data.uri.split('/')[2];
-                
                 resolve(res)
                 UploadVideoTusJs(res.data.upload.upload_link, video)
                 .then(res => {
@@ -101,11 +100,11 @@ class vimeo {
                             }})
                             .then(response => {
                                 resolve(response);
-    
                             }).catch(err => {
                                 reject(err);
                             });
                     }else{
+
                         resolve(res);
                     }
 
@@ -120,6 +119,35 @@ class vimeo {
         });
     }
 
+    getFromId(id){
+        return new Promise((resolve, reject) => {
+            var interval
+            interval = setInterval(() => {
+                axios.get(`https://api.vimeo.com${id}`,{
+                    headers: {
+                        Authorization:`Bearer ${this.accessToken}`
+                    }
+                }).then(response => 
+                        {
+                                if(typeof response.data.download[0]!="undefined" && response.data.files.length>2){
+
+                                    clearInterval(interval)
+                                    sleep(10000).then(() => {
+                                        // Do something after the sleep!
+                                        resolve(response)
+                                    });
+                                    
+                                }
+                        }).catch(err =>{
+                        reject(err)
+                    })
+            }, 5000);
+            })
+
+    }
 }
 
+function sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
 module.exports = vimeo;
