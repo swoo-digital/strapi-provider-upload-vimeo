@@ -11,7 +11,8 @@ Configure in ```.\config\plugins.js```
         providerOptions:{
             accessToken : "ACCESS_TOKEN", //upload and delete permissions
             clientSecret : "CLIENT_SECRET",
-            clientId : "CLIENT_ID"
+            clientId : "CLIENT_ID",
+            premium : true // or false
         }
     }
 ```
