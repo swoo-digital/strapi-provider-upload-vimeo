@@ -17,23 +17,23 @@ module.exports = {
             if(config.premium){
             
               client.getFromId(res.data.uri)
-            .then(res => {
-              for(i=0;i<res.data.files.length;i++){
-                if(res.data.files[i].link.includes("profile_id=164")){
-                  file.url = res.data.files[i].link.split("&profile_id=164")[0]+"&download=1"
-                  break
+              .then(res => {
+                for(i=0;i<res.data.files.length;i++){
+                  if(res.data.files[i].link.includes("profile_id=164")){
+                    file.url = res.data.files[i].link.split("&profile_id=164")[0]+"&download=1"
+                    break
+                  }
                 }
-              }
 
-              file.provider_metadata =  {
-                "link":res.data.link,
-                "files":res.data.files
-              }
-              resolve()
-            }).catch(err =>{
-              console.log("get",err)
-              reject()
-            })
+                file.provider_metadata =  {
+                  "link":res.data.link,
+                  "files":res.data.files
+                }
+                resolve()
+              }).catch(err =>{
+                console.log("get",err)
+                reject()
+              })
           }else{
             file.url = res.data.link
             resolve()
