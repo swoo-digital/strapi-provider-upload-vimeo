@@ -16,7 +16,11 @@ module.exports = {
             if(config.premium){
             client.getFromId(res.data.uri)
             .then(res => {
-              file.url = res.data.download[0].link
+              for(i=0;i<res.data.files.length;i++){
+                if(res.data.files[i].public_name = "SD 360p"){
+                  file.url = res.data.files[i].link.split("&profile_id=164")[0]+"download=1"
+                }
+              }
               file.width = res.data.width
               file.height = res.data.height
               file.provider_metadata =  {
@@ -44,8 +48,8 @@ module.exports = {
         client.vimeoClient.request( {
           method: 'DELETE',
           path: '/videos/'+str.substring(
-            str.indexOf("?s=") + 3, 
-            str.indexOf("_")
+            str.lastIndexOf("/") + 1, 
+            str.indexOf(".sd")
         )
         
         },  function (error, body, status_code, headers) {
