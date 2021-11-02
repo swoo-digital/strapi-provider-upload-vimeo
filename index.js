@@ -26,7 +26,6 @@ module.exports = {
               file.provider_metadata =  {
                 "link":res.data.link,
                 "files":res.data.files,
-                "download":res.data.download
               }
               resolve()
             }).catch(err =>{
