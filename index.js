@@ -17,15 +17,15 @@ module.exports = {
             client.getFromId(res.data.uri)
             .then(res => {
               for(i=0;i<res.data.files.length;i++){
-                if(res.data.files[i].public_name = "SD 360p"){
-                  file.url = res.data.files[i].link.split("&profile_id=164")[0]+"download=1"
+                if(res.data.files[i].link.includes("profile_id=164")){
+                  file.url = res.data.files[i].link.split("&profile_id=164")[0]+"&download=1"
+                  break
                 }
               }
-              file.width = res.data.width
-              file.height = res.data.height
+
               file.provider_metadata =  {
                 "link":res.data.link,
-                "files":res.data.files,
+                "files":res.data.files
               }
               resolve()
             }).catch(err =>{
