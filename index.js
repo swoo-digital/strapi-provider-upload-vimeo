@@ -13,8 +13,10 @@ module.exports = {
             name: file.hash,
             description: file.alternativeText,    
           }).then(res =>{
+
             if(config.premium){
-            client.getFromId(res.data.uri)
+            
+              client.getFromId(res.data.uri)
             .then(res => {
               for(i=0;i<res.data.files.length;i++){
                 if(res.data.files[i].link.includes("profile_id=164")){
