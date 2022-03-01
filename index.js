@@ -52,10 +52,6 @@ module.exports = {
 			},
 			delete(file) {
 				str = file.provider_metadata.link;
-				console.log(
-					file.provider_metadata.link,
-					str.split("/")[str.split("/").length - 1]
-				);
 				client.vimeoClient.request(
 					{
 						method: "DELETE",
