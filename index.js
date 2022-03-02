@@ -23,7 +23,10 @@ module.exports = {
 									.getFromId(res.data.uri)
 									.then((res) => {
 										for (i = 0; i < res.data.files.length; i++) {
-											if (res.data.files[i].link.includes("360p")) {
+											if (
+												res.data.files[i].public_name.includes("360p") &&
+												res.data.files[i].quality.includes("sd")
+											) {
 												file.url = res.data.files[i].link;
 												break;
 											}
