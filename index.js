@@ -23,13 +23,14 @@ module.exports = {
 									.getFromId(res.data.uri)
 									.then((res) => {
 										for (i = 0; i < res.data.files.length; i++) {
-											if (
-												res.data.files[i].public_name.includes("360p") &&
-												res.data.files[i].quality.includes("sd")
-											) {
+											if (res.data.files[i].rendition == "360p") {
 												file.url = res.data.files[i].link;
 												break;
 											}
+										}
+
+										if (file.url == undefined) {
+											file.url = res.data.link;
 										}
 
 										file.provider_metadata = {
