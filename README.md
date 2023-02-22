@@ -14,6 +14,7 @@ Configure in ```.\config\plugins.js```
             clientSecret : "CLIENT_SECRET",
             clientId : "CLIENT_ID",
             premium : true // or false
+            folderId: "12345678" // Assuming the folder is this: https://vimeo.com/manage/folders/12345678
         }
     }
 ```
