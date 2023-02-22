@@ -81,14 +81,14 @@ class vimeo {
 			video: Buffer.alloc(8),
 			name: "video name",
 			description: "video desc",
-			folder: "",
+			folderId: undefined,
 		}
 	) {
 		return new Promise((resolve, reject) => {
 			var video = params.video,
 				name = params.name,
 				description = params.description,
-				folder = params.folder;
+				folderId = params.folderId;
 
 			axios
 				.post(
@@ -100,6 +100,8 @@ class vimeo {
 						},
 						name: name ? name : undefined,
 						description: description ? description : undefined,
+						folder_uri:
+							folderId !== undefined ? `/folders/${folderId}` : undefined,
 					},
 					{
 						headers: {
@@ -108,30 +110,10 @@ class vimeo {
 					}
 				)
 				.then((res) => {
-					var vimeoVideoID = res.data.uri.split("/")[2];
 					resolve(res);
 					UploadVideoTusJs(res.data.upload.upload_link, video)
 						.then((res) => {
-							if (folder) {
-								axios
-									.put(
-										`https://api.vimeo.com/me/projects/${folder}/videos/${vimeoVideoID}`,
-										{},
-										{
-											headers: {
-												Authorization: `Bearer ${this.accessToken}`,
-											},
-										}
-									)
-									.then((response) => {
-										resolve(response);
-									})
-									.catch((err) => {
-										reject(err);
-									});
-							} else {
-								resolve(res);
-							}
+							resolve(res);
 						})
 						.catch((err) => {
 							reject(err);
