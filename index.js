@@ -23,7 +23,12 @@ module.exports = {
 									.getFromId(res.data.uri)
 									.then((res) => {
 										for (i = 0; i < res.data.files.length; i++) {
-											if (res.data.files[i].rendition == "360p") {
+											if (
+												res.data.files[i].rendition == "360p" ||
+												res.data.files[i].rendition == "540p" ||
+												res.data.files[i].rendition == "720p" ||
+												res.data.files[i].rendition == "1080p"
+											) {
 												file.url = res.data.files[i].link;
 												break;
 											}

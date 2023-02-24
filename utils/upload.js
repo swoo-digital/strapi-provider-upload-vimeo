@@ -154,12 +154,14 @@ class vimeo {
 						},
 					})
 					.then((response) => {
-						if (
-							typeof response.data.download[0] != "undefined" &&
-							response.data.files.length > 2
-						) {
+						if (response.data.status == "available") {
 							for (var i = 0; i < response.data.files.length; i++) {
-								if (response.data.files[i].rendition == "360p") {
+								if (
+									res.data.files[i].rendition == "360p" ||
+									res.data.files[i].rendition == "540p" ||
+									res.data.files[i].rendition == "720p" ||
+									res.data.files[i].rendition == "1080p"
+								) {
 									clearInterval(interval);
 									sleep(10000).then(() => {
 										// Do something after the sleep!
