@@ -157,10 +157,10 @@ class vimeo {
 						if (response.data.status == "available") {
 							for (var i = 0; i < response.data.files.length; i++) {
 								if (
-									res.data.files[i].rendition == "360p" ||
-									res.data.files[i].rendition == "540p" ||
-									res.data.files[i].rendition == "720p" ||
-									res.data.files[i].rendition == "1080p"
+									response.data.files[i].rendition == "360p" ||
+									response.data.files[i].rendition == "540p" ||
+									response.data.files[i].rendition == "720p" ||
+									response.data.files[i].rendition == "1080p"
 								) {
 									clearInterval(interval);
 									sleep(10000).then(() => {
