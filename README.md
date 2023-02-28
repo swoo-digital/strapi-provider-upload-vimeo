@@ -9,10 +9,16 @@ Configure in ```.\config\plugins.js```
     {
         provider: "vimeo",
         providerOptions:{
+            // you should obviously use process.env.YOUR_VARS for security reasons
             accessToken : "ACCESS_TOKEN", //upload and delete permissions
             clientSecret : "CLIENT_SECRET",
             clientId : "CLIENT_ID",
             premium : true // or false
+
+            // If you want to upload to a specific folder, create that folder first and then
+            // uncomment the following line and replace the folderId with the id of the folder.
+            // Example: "https://vimeo.com/manage/folders/12345678" -> "12345678"
+            // folderId: "12345678"
         }
     }
 ```

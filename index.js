@@ -16,6 +16,7 @@ module.exports = {
 							video: file.buffer,
 							name: file.hash,
 							description: file.alternativeText,
+							folderId: config.folderId,
 						})
 						.then((res) => {
 							if (config.premium) {
