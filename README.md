@@ -23,3 +23,4 @@ Configure in ```.\config\plugins.js```
     }
 ```
 
+Supported version Strapi 3.6
