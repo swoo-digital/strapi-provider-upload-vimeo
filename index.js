@@ -30,17 +30,17 @@ module.exports = {
 												res.data.files[i].rendition == "720p" ||
 												res.data.files[i].rendition == "1080p"
 											) {
-												file.url = res.data.files[i].link;
+												file.url = res.data.files[i].link + "#";
 												break;
 											}
 										}
 
 										if (file.url == undefined) {
-											file.url = res.data.link;
+											file.url = res.data.link + "#";
 										}
 
 										file.provider_metadata = {
-											link: res.data.link,
+											link: res.data.link + "#",
 											files: res.data.files,
 										};
 										resolve();
@@ -50,7 +50,7 @@ module.exports = {
 										reject();
 									});
 							} else {
-								file.url = res.data.link;
+								file.url = res.data.link + "#";
 								resolve();
 							}
 						})

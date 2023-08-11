@@ -1,35 +1,35 @@
 {
-  "name": "strapi-provider-upload-vimeo",
-  "version": "1.2.8",
-  "description": "Strapi Plugin for uploading videos to vimeo",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/viveakrt/strapi-provider-upload-vimeo.git"
-  },
-  "keywords": [
-    "strapi",
-    "vimeo",
-    "upload",
-    "provider",
-    "strapi-upload",
-    "strapi-provider-upload",
-    "video",
-    "api",
-    "delete"
-  ],
-  "author": "Vivek",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/viveakrt/strapi-provider-upload-vimeo/issues"
-  },
-  "homepage": "https://github.com/viveakrt/strapi-provider-upload-vimeo#readme",
-  "dependencies": {
-    "vimeo": "^2.1.1",
-    "axios": "^0.21.1",
-    "tus-js-client": "^2.2.0"
-  }
+	"name": "@swoo-digital/strapi-provider-upload-vimeo",
+	"version": "1.2.9",
+	"description": "Strapi plugin for uploading videos to vimeo",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/swoo-digital/strapi-provider-upload-vimeo.git"
+	},
+	"keywords": [
+		"strapi",
+		"vimeo",
+		"upload",
+		"provider",
+		"strapi-upload",
+		"strapi-provider-upload",
+		"video",
+		"api",
+		"delete"
+	],
+	"author": "Christoph Weise-Onnen",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/swoo-digital/strapi-provider-upload-vimeo/issues"
+	},
+	"homepage": "https://github.com/swoo-digital/strapi-provider-upload-vimeo#readme",
+	"dependencies": {
+		"vimeo": "^2.1.1",
+		"axios": "^0.21.1",
+		"tus-js-client": "^2.2.0"
+	}
 }
